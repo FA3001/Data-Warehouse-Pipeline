@@ -40,9 +40,16 @@ The system is divided into several components, each responsible for specific tas
   <center>
       <img src="Images/arch.png" width="1200" />
   </center>
+  
 ## 1.Data Source
 - We have the data files complaines.csv and geographics.json
-- Using Python and Duckdb we do processing for the data 
+## 2.ETL
+- Using Duckdb we convert the json file to parquet and process the data and filter it uploade it postgres table.
+- Processe the csv file and uploade it to postgres tables.
+## 3.Storage
+- Using postgres to store the tables and create the modleing for it.
+## Visualization
+using Metabase and sql to create some visualization.
 # Data Warehouse Architecture
 The schema DataWarehouse:
   <center>
