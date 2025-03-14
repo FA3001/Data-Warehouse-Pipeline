@@ -1,0 +1,78 @@
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore data files (if not using Git LFS)
+data/
+*.csv
+*.json
+*.parquet
+*.xlsx
+*.db
+*.sqlite
+
+# Ignore logs and local settings
+logs/
+*.log
+local_settings.py
+
+# Ignore distribution and build files
+dist/
+build/
+*.egg-info/
+*.egg
+*.whl
+
+# Ignore pytest cache and coverage reports
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore Windows-specific files
+Thumbs.db
+Desktop.ini
+
+# Ignore environment files
+# .env
+.env.local
+.env.development
+.env.production
+
+# Ignore Docker-related files
+# docker-compose.override.yml
+# docker-compose.*.yml
+
+# Ignore Airflow-specific files
+airflow.cfg
+airflow.db
+airflow-webserver.pid
+logs/
+plugins/
+config/
+
+# Ignore other common files
+*.bak
+*.tmp
+*.temp
+*.gz
+*.zip
+*.tar
