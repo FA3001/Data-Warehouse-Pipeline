@@ -12,7 +12,7 @@ class ComplaintsEDA(PostgreSQLManager):
     def validate_data(self, df):
         """Validate raw data before processing."""
         logging.info("Starting data validation...")
-        # Schema check (example columns)
+        # Schema check
         expected_cols = {'Date received', 'Product', 'State'}
         missing_cols = expected_cols - set(df.columns)
         if missing_cols:
@@ -60,7 +60,7 @@ class ComplaintsEDA(PostgreSQLManager):
             if df_chunk.empty:
                 break
             if incremental:
-                # Check for existing data based on a unique key (e.g., complaint ID or date+product)
+                # Check for existing data based on a unique key
                 existing_keys = pd.read_sql(f"SELECT DISTINCT \"Date received\" FROM {table_name}", self.engine)
                 df_chunk = df_chunk[~df_chunk['Date received'].isin(existing_keys['Date received'])]
             self.upload_data(df_chunk, table_name, if_exists='append' if offset > 0 or incremental else 'replace')
