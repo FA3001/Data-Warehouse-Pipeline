@@ -61,7 +61,7 @@ class ComplaintsEDA(PostgreSQLManager):
                 break
             if incremental:
                 # Check for existing data based on a unique key
-                existing_keys = pd.read_sql(f"SELECT DISTINCT \"Date received\" FROM {table_name}", self.engine)
-                df_chunk = df_chunk[~df_chunk['Date received'].isin(existing_keys['Date received'])]
+                existing_keys = pd.read_sql(f"SELECT DISTINCT \"Complaint ID\" FROM {table_name}", self.engine)
+                df_chunk = df_chunk[~df_chunk['Complaint ID'].isin(existing_keys['Complaint ID'])]
             self.upload_data(df_chunk, table_name, if_exists='append' if offset > 0 or incremental else 'replace')
             offset += chunk_size
